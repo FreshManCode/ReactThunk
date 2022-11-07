@@ -1,0 +1,8 @@
+.ComB {
+    min-width: 90%;
+    min-height: 400px;
+}
+
+.ComB .redP {
+    color: red;
+}
