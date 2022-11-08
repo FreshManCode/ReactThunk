@@ -102,6 +102,8 @@ module.exports = function (webpackEnv) {
   // Get environment variables to inject into our app.
   const env = getClientEnvironment(paths.publicUrlOrPath.slice(0, -1));
 
+  console.log('isEnvDevelopment:',isEnvDevelopment);
+
   const shouldUseReactRefresh = env.raw.FAST_REFRESH;
 
   // common function to get style loaders
@@ -319,6 +321,8 @@ module.exports = function (webpackEnv) {
           'scheduler/tracing': 'scheduler/tracing-profiling',
         }),
         ...(modules.webpackAliases || {}),
+         // 配置src 下面的搜索路径
+        '@':paths.appSrc,
       },
       plugins: [
         // Prevents users from importing files from outside of src/ (or node_modules/).
@@ -513,12 +517,22 @@ module.exports = function (webpackEnv) {
                   sourceMap: isEnvProduction
                     ? shouldUseSourceMap
                     : isEnvDevelopment,
-                  modules: {
-                    mode: 'icss',
-                  },
+                    modules: {
+                      mode: 'icss',
+                    },
                 },
                 'sass-loader'
-              ),
+              ).concat([
+                {
+                  // 通过 sass-resources-loader 全局注册 Sass/Less 变量
+                  loader: "sass-resources-loader",
+                  options: {
+                    resources: [
+                      path.resolve(__dirname, "../src/styles/common.scss"),
+                    ],
+                  },
+                },
+              ]),
               // Don't consider CSS imports dead code even if the
               // containing package claims to have no side effects.
               // Remove this when webpack adds a warning or an error for this.

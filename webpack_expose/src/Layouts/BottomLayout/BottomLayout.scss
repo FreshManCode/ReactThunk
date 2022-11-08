@@ -1,0 +1,25 @@
+.footer {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    height: 70px;
+
+&>span {
+    opacity: 0.85;
+    font-family: PingFangSC-Regular;
+    font-size: 12px;
+    color: #000;
+}
+
+.ipv6 {
+    color: #e04054;
+    border: 1px solid #e04054;
+    border-radius: 9.5px;
+    padding: 0px 5px;
+    height: 19px;
+    margin-left: 3px;
+  }
+}

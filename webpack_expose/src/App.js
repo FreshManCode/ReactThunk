@@ -11,11 +11,11 @@ function App() {
         </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
+          href="/bottom/learn"
+          target=""
           rel="noopener noreferrer"
         >
-          Learn React
+          使用react-router-domV6 进行路由嵌套功能
         </a>
       </header>
     </div>
