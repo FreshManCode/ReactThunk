@@ -1,0 +1,69 @@
+{
+    "head": {
+        "code": "200",
+        "msg": "返回正确",
+        "stime": "1616751339522"
+    },
+    "body": {
+        "data": {
+            "accountList": [
+                {
+                    "accountNo": "200800500120000737824800001",
+                    "accountName": "结算专户",
+                    "accountType": "214",
+                    "balance": "88976.00",
+                    "availableBalance": "88976.00",
+                    "status":"normal",
+                    "frozenBalance": "0.00"
+                },
+                {
+                    "accountNo": "200800500120000737824800003",
+                    "accountName": "基本户",
+                    "accountType": "201",
+                    "balance": "88976.00",
+                    "availableBalance": "88976.00",
+                    "status":"normal",
+                    "frozenBalance": "0.00"
+                },
+                {
+                    "accountNo": "200800500120000737824800000",
+                    "accountName": "301基本户",
+                    "accountType": "301",
+                    "balance": "88976.00",
+                    "availableBalance": "88976.00",
+                    "status":"freeze",
+                    "frozenBalance": "0.00"
+                },
+                {
+                    "accountNo": "2008005001200007378248000011",
+                    "accountName": "306基本户",
+                    "accountType": "306",
+                    "balance": "88976.00",
+                    "availableBalance": "88976.00",
+                    "status":"normal",
+                    "frozenBalance": "0.00"
+                },
+                {
+                    "accountNo": "2008005001200007378248000012",
+                    "accountName": "306基本户",
+                    "accountType": "212",
+                    "balance": "88976.00",
+                    "availableBalance": "88976.00",
+                    "status":"freeze",
+                    "frozenBalance": "0.00"
+                },
+                {
+                    "accountNo": "2008005001200007378248000012",
+                    "accountName": "306基本户",
+                    "accountType": "2203001001",
+                    "balance": "88976.00",
+                    "availableBalance": "88976.00",
+                    "status":"freeze",
+                    "frozenBalance": "0.00"
+                }
+                
+            ]
+
+        }
+    }
+}

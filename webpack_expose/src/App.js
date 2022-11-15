@@ -17,6 +17,13 @@ function App() {
         >
           使用react-router-domV6 进行路由嵌套功能
         </a>
+
+        <a
+          className="App-link"
+          href="/bottom/home"
+        >
+          Home
+        </a>
       </header>
     </div>
   );

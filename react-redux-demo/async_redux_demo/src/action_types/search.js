@@ -1,0 +1,5 @@
+const SEARCH_USERNAME = "SEARCH_USERNAME"
+
+export {
+    SEARCH_USERNAME
+}

@@ -1,0 +1,34 @@
+{
+	"head": {
+		"code": "200",
+		"msg": "返回正确",
+		"stime": "1650423424383"
+	},
+	"body": {
+		"data": {
+			"memberInfo": {
+				"memberId": "200060277715",
+				"memberName": "chen34",
+				"memberStatus": "1",
+				"memberBusiType": "FINANCE",
+				"auditStatus": "5",
+				"rejectReason": "12222222222222222222222222222222222222222222",
+				"companyContactName": "张三",
+				"companyContactMobile": "131****3366",
+				"companyContactEmail": "c*******@staff.sinaft.com",
+				"contactName": "张三",
+				"contactMobile": "131****3366",
+				"contactEmail": "c*******@staff.sinaft.com",
+				"level": null,
+				"isOpLogin": false,
+				"createPayPassword": "1",
+				"enterpriseName": "chen34",
+				"openBusinessType": "INCOME",
+				"riskLevel": "R1",
+				"mwRefundShow": true,
+				"operatorId": "7000010313953",
+				"opLogin": false
+			}
+		}
+	}
+}

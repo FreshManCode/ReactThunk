@@ -18,7 +18,10 @@ class ComB extends React.Component {
   }
 }
 
-export default connect((state) => ({ count: state.count,isFetching:state.isFetching ,data:state.data}), {
+export default connect((state) => {
+  console.log('state is:',state)
+  return ({ count: state.counter.count,isFetching:state.counter.isFetching ,data:state.counter.data})
+}, {
 
 
 })(ComB);

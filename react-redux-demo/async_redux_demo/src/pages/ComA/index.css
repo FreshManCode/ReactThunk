@@ -1,9 +1,15 @@
 .ComA {
     margin: 20px;
-   
 }
 .buttonContainer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    /* 允许换行 */
+    flex-wrap: wrap;
+}
+
+.buttonContainer  button {
+    min-width: 22%;
+    margin: 5px;
 }

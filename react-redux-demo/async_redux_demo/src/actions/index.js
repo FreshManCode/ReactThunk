@@ -1,7 +1,13 @@
-import {INCREMENT,DECREMENT,FETCH_BEGIN,FETCH_ERROR,FETCH_SUCCESS} from '../action_types'
+import {INCREMENT,DECREMENT,FETCH_BEGIN,FETCH_ERROR,FETCH_SUCCESS,KUANGSHITOEKNREQUEST} from '../action_types'
+import fetchMock from 'fetch-mock'
 
 const getFaceIDTokenURL = 'https://id2.hisign.com.cn:9001/hisp/tech/ivLive/fetchToken'
 const getFaceIDResultURL = 'https://id2.hisign.com.cn:9001/hisp/tech/ivLive/fetchToken'
+
+
+const getKSTokenURL = "https://api.megvii.com/faceid/lite/get_token"
+
+
 const params = {
     "appId": "92e767f5d4f64817b153e894eebc08ed",
     "appKey": "NzgyMTA4MjY=",
@@ -10,6 +16,16 @@ const params = {
         "title": "新浪支付Test."
     }
 }
+const ksTokenParams = {
+    "api_key" : "LAKXWw1OLy5IZZCAWJSnVk0p744i7X4d",
+    "api_secret" : "Ka9qnMrCcqMunTCotRKsu8b8uSz2isSL",
+    "return_url":"http://10.65.105.3:3000",
+    "notify_url":"http://10.65.105.3:3000",
+    "biz_no":(Math.random % 1000) + '111'
+}
+
+
+
 
 const FetchPOST = (URL,params={},dispatch,successCB,errorCB)=>{
     dispatch(sendFetchAction())
@@ -20,6 +36,24 @@ const FetchPOST = (URL,params={},dispatch,successCB,errorCB)=>{
             'Content-type':'application/json'
         },
         body:JSON.stringify(params)
+    }).then(res=>{
+        console.log('res is:',res);
+        return res.json()
+    }).then(data=>{
+        console.log('data is:',data);
+        successCB && successCB (data)
+        dispatch(sendFetchSuccess(data))
+    }).catch(error=>{
+        console.log('error is:',error);
+        errorCB && errorCB(error)
+        dispatch(sendFetchError(error))
+    })
+}
+
+const FetchGet = (URL,params,dispatch,successCB,errorCB)=>{
+    dispatch(sendFetchAction())
+    return fetch(URL,{
+        method:'get',
     }).then(res=>{
         console.log('res is:',res);
         return res.json()
@@ -71,6 +105,11 @@ const requestTestFaceIDToken = (successCB,errorCB)=>{
     }
 }
 
+const requestKSToken = (successCB,errorCB)=>{
+    return (dispatch)=>{
+        FetchPOST(getKSTokenURL,ksTokenParams,dispatch,successCB,errorCB)
+    }
+}
 
 const requestFaceIDResult = (reqParams,successCB,errorCB)=>{
     return (dispatch)=>{
@@ -79,9 +118,15 @@ const requestFaceIDResult = (reqParams,successCB,errorCB)=>{
 }
 
 export {
+    sendFetchAction,
+    sendFetchError,
+    sendFetchSuccess,
+    FetchPOST,
+    FetchGet,
     incrementCreator,
     decrementCreator,
     incrementAsync,
     requestTestFaceIDToken,
-    requestFaceIDResult
+    requestFaceIDResult,
+    requestKSToken
 }

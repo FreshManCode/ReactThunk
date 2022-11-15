@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import {decrementCreator,incrementAsync,incrementCreator,requestTestFaceIDToken,requestFaceIDResult} from "../../actions";
+import {decrementCreator,incrementAsync,incrementCreator,requestTestFaceIDToken,requestFaceIDResult,requestKSToken} from "../../actions";
 import {getQueryVariable} from '../../util'
 import {message} from 'antd'
 import './index.css'
@@ -42,6 +42,17 @@ class ComA extends React.Component {
         });
     }
 
+
+    // 调用旷视JS 
+    callKSJS= ()=>{
+        this.props.requestKSToken(res=>{
+            console.log('callKSJS_res:',res)
+        },error=>{
+            console.log('callKSJS_error:',error)
+        })
+
+    }
+
     useInnerToken = ()=>{
         const token = sessionStorage.getItem('faceid_token')
         window.startVerify( token ? token :'22113100819_747968929186795520','https://h5.hisign.com.cn:42116/iv-live/live')
@@ -60,7 +71,8 @@ class ComA extends React.Component {
       const number = this.state.selsectValue 
         return <div className='ComA'>
             <div className="buttonContainer">
-                <button onClick={this.callOutJS}>Click外部JS</button>
+                <button onClick={this.callOutJS}>海鑫JS</button>
+                <button onClick={this.callKSJS}>旷视JS</button>
                 <button className='test' onClick={this.useInnerToken}>本地token</button>
                 <button onClick={()=>{this.props.increment(number)}}>同步加法</button>
                 <button onClick={()=>{this.props.decrement(number)}}>同步减法</button>
@@ -84,4 +96,5 @@ export default connect((state) => ({ count: state.count }), {
   incrementAsyc: incrementAsync,
   requestFaceIDToken:requestTestFaceIDToken,
   requestFaceIDResult:requestFaceIDResult,
+  requestKSToken:requestKSToken,
 })(ComA);
