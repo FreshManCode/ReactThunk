@@ -16,7 +16,7 @@ axios.interceptors.response.use(
 );
 
 const checkStatus = (res)=>{
-    if (res.status == 200 || res.status == 304) {
+    if (res.status === 200 || res.status === 304) {
         return res.data
     }
     return {

@@ -14,7 +14,7 @@ const envMap = {
 }
 
 module.exports = (app)=>{
-    console.log('REACT_APP_ENV:',envMap[REACT_APP_ENV] ? envMap[REACT_APP_ENV] : '生产环境');
+    console.log('REACT_APP_ENV:',REACT_APP_ENV,"\n",envMap[REACT_APP_ENV] ? envMap[REACT_APP_ENV] : '生产环境');
     if (REACT_APP_ENV === 'development_mock') {
         app.use(express.static('mock'))
     } else if (REACT_APP_ENV === 'development') {

@@ -8,3 +8,24 @@
         min-width: 90px !important;
     }
 }
+
+
+.showTextChildWrapper {
+    background:#f101ff;
+    margin: 20px;
+    color: palevioletred;
+    opacity: 0.8;
+    font: italic 15px;
+
+    p {
+        color: #00ff00;
+
+        span {
+            color: #000000;
+        }
+    }
+}
+
+.redButton {
+    color: #ff00ff;
+}

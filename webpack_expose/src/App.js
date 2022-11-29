@@ -1,6 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
 
+import EventEmitter from  '@/utils/EventEmitter'
+// 实例化 EventEmitter,并把实例挂载在window上
+EventEmitter.initInstance()
+
 function App() {
   return (
     <div className="App">
