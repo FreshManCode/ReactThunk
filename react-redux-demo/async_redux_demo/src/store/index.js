@@ -16,8 +16,8 @@ import {counter,allCounter} from '../reducer'
 
 
 // 把项目中的reducer组合起来(可能有多个reducer)
-const allCombineReducer = combineReducers(...allCounter)
-export default createStore(allCombineReducer,applyMiddleware(thunk));
+const allCombineReducer = combineReducers(allCounter)
+export default createStore(allCounter,applyMiddleware(thunk));
 
 
 

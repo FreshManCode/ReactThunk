@@ -3,6 +3,7 @@ import './index.scss'
 import {objctData,userInfo} from './mockData'
 import {Button} from 'antd'
 import SubChild from './SubChild'
+import FunctionOne from './FunctionChild/FunctionOne'
 const PubSub = require('pubsub-js')
 
 // myEvent 提前初始化并挂载在windows上的
@@ -87,6 +88,7 @@ class MockJS extends React.Component {
                     <Button className="button" onClick={this.coptTest}>copy</Button>
                     
                 </div>
+                <FunctionOne/>
                <ShowTextChild showText={this.state.showText}></ShowTextChild>
                <EventChild/>
         </div>
@@ -193,3 +195,4 @@ class EventChild extends React.Component {
         </div>
     }
 }
+

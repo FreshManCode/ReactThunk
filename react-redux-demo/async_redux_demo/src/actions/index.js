@@ -1,5 +1,5 @@
 import {INCREMENT,DECREMENT,FETCH_BEGIN,FETCH_ERROR,FETCH_SUCCESS,KUANGSHITOEKNREQUEST} from '../action_types'
-import fetchMock from 'fetch-mock'
+import http from '../util/http'
 
 const getFaceIDTokenURL = 'https://id2.hisign.com.cn:9001/hisp/tech/ivLive/fetchToken'
 const getFaceIDResultURL = 'https://id2.hisign.com.cn:9001/hisp/tech/ivLive/fetchToken'
@@ -23,6 +23,7 @@ const ksTokenParams = {
     "notify_url":"http://10.65.105.3:3000",
     "biz_no":(Math.random % 1000) + '111'
 }
+
 
 
 
@@ -101,7 +102,10 @@ const sendFetchSuccess = (res)=>{
 
 const requestTestFaceIDToken = (successCB,errorCB)=>{
     return (dispatch)=>{
-        FetchPOST(getFaceIDTokenURL,params,dispatch,successCB,errorCB)
+        http.get(getFaceIDTokenURL,params,dispatch).then((res)=>{
+            console.log('res is:',res)
+        });
+        // FetchPOST(getFaceIDTokenURL,params,dispatch,successCB,errorCB)
     }
 }
 

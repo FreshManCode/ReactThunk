@@ -4,7 +4,7 @@ import {INCREMENT,DECREMENT,FETCH_BEGIN,FETCH_ERROR,FETCH_SUCCESS} from '../acti
 const initState = {isFetching:false,data:{}}
 
 export const searchUserName = (state = initState,action)=> {
-    console.log('action:',action);
+    console.log('search_action:',action);
     switch (action.type) {
         case FETCH_BEGIN:
             return {isFetching:true}
