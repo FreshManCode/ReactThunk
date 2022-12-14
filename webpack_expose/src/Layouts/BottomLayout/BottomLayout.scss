@@ -1,9 +1,16 @@
+.myContentContainer {
+    margin-top: 0px;
+    min-height: calc(100vh - 100px);
+    width: 100vw;
+}
+
 .footer {
     display: flex;
     flex-direction: row;
     text-align: center;
     align-items: center;
     justify-content: center;
+
     margin-top: 20px;
     height: 70px;
 

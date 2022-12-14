@@ -1,0 +1,39 @@
+.buttonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+
+    button {
+        color: blue;
+        font-size: 15px;
+    }
+}
+.testDiv  {
+    border: 1px solid red;
+    overflow: hidden;
+    p {
+        margin-right: 100px;
+    }
+    .leftDiv {
+        padding: 10px 0;
+        float: left;
+        width: 65%;
+        background-color: yellow;
+    }
+    .rightDiv {
+        padding: 10px 0;
+        text-align: right;
+        float: right;
+        width: 35%;
+        background-color: #f5f5f5;
+    }
+    
+}
+#testAddEventListerUL{
+    list-style:decimal;
+    li {
+        padding: 5px;
+    }
+
+}

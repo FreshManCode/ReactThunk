@@ -1,0 +1,40 @@
+.TypeScriptTwo {
+    padding: 10px;
+
+    p {
+        color: red;
+    }
+}
+
+.listCardContainer {
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+
+    // 处理P 只允许显示一行文本
+    p {
+        // 处理单行文本溢出
+        text-overflow:ellipsis;
+        overflow: hidden;
+        font-size: 15px;
+        white-space: nowrap;
+    }
+    
+    p:first-child {
+        min-width: 20vw;
+        width: 20vw;
+        color: #4a4a4a;
+        font:bold 18px 'microsoft yahei';
+        text-align: left;
+    }
+}
+.listCardContainer::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: calc(100vw - 40px);
+    height: 1px;
+    background-color: #ececec;
+    margin-top: 70px;
+}

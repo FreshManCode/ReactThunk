@@ -14,7 +14,7 @@ export default class BottomLayout extends React.Component {
     }
     render() {
         return <Layout>
-            <Content>
+            <Content className='myContentContainer'>
                 <Outlet/>
             </Content>
             <Footer className="footer">
