@@ -1,6 +1,8 @@
 # 发布订阅模式
 ## pubsub-js 该插件可以用来管理实现发布订阅,实现跨组件通信
 
+* node 版本:v14.15.1
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

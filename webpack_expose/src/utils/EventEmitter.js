@@ -2,6 +2,7 @@
  * 跨组件通信的 发布订阅模型 可跨多层组件传递,父->子,子->父,
  * 只要订阅以及相应的发布事件即可
  */
+EventEmitter.initInstance()
 class EventEmitter{
     constructor(){
         // 管理事件发布-订阅的 map
@@ -44,10 +45,12 @@ class EventEmitter{
     }
 
     static initInstance() {
+        // 实例化 EventEmitter,并把实例挂载在window上
         if (!window.myEvent){
             const myEvent = new EventEmitter()
             window.myEvent = myEvent
         }
+        console.log('initInstance:',window.myEvent)
     }
 
 }

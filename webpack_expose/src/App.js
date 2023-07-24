@@ -1,35 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
-
-import EventEmitter from  '@/utils/EventEmitter'
-// 实例化 EventEmitter,并把实例挂载在window上
-EventEmitter.initInstance()
+import logo from "./logo.svg";
+import "./App.css";
+import { ConfigProvider } from "antd";
+import { GetRoutes } from "./router";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="/bottom/learn"
-          target=""
-          rel="noopener noreferrer"
-        >
-          使用react-router-domV6 进行路由嵌套功能
-        </a>
-
-        <a
-          className="App-link"
-          href="/bottom/home"
-        >
-          Home
-        </a>
-      </header>
-    </div>
+    <ConfigProvider theme={{ token: { colorPrimary: '#00b96b' } }}>
+      <BrowserRouter>
+        <GetRoutes />
+      </BrowserRouter>
+    </ConfigProvider>
   );
 }
 
