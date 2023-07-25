@@ -1,5 +1,5 @@
 import React from "react";
-import { DesktopOutlined,FileOutlined,PieChartOutlined,TeamOutlined,UserOutlined,} from '@ant-design/icons';
+import { DesktopOutlined,FileOutlined,PieChartOutlined,TeamOutlined,UserOutlined,AndroidOutlined} from '@ant-design/icons';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import { Outlet,Link } from 'react-router-dom'
 import './MainLayout.scss'
@@ -12,6 +12,7 @@ const URLMaps = {
   '/main/optionsone':'1',
   '/main/optionstwo':'2',
   "/main/content":'9',
+  "/mobx/home":'sub3_10',
 }
 
 const URLSubMaps = {
@@ -25,6 +26,8 @@ class  MainLayout extends React.Component {
     this.state = {
       collapsed:false,
       defaultSelectedKeys:'',
+      // 默认子项展开的key
+      defaultOpenKeys:'',
       breadItems:[],
     }
   }
@@ -36,9 +39,12 @@ class  MainLayout extends React.Component {
   componentWillMount(props) {
     const path = window.location.pathname;
     const key  = (URLMaps[path]|| '1') + '';
+    const subMenuIsOpen = key.indexOf("_") >= 0
+    const subKey = subMenuIsOpen ? key.split('_')[0] : '';
     console.log("key:",key)
     this.setState({
-      defaultSelectedKeys:key
+      defaultSelectedKeys:key,
+      defaultOpenKeys:subKey + ''
     })
   }
 
@@ -74,6 +80,7 @@ class  MainLayout extends React.Component {
   // { path: "/main/optionstwo", element: <OptionsTWO /> },
 
   items = [
+    // 注意:这里面的key值要唯一,否则会出现点击一个item,多个item同时高亮情况
     this.getItem('Option 1', '1', <Link to={'/main/optionsone'}><PieChartOutlined /></Link>),
     this.getItem('Option 2', '2', <Link to={'/main/optionstwo'}><DesktopOutlined /></Link>),
     this.getItem('User', 'sub1', <UserOutlined />, [
@@ -82,19 +89,25 @@ class  MainLayout extends React.Component {
       this.getItem('Alex', '5'),
     ]),
     this.getItem('Team', 'sub2', <TeamOutlined />, [this.getItem('Team 1', '6'), this.getItem('Team 2', '8')]),
+    this.getItem('mobx', 'sub3', <AndroidOutlined />,[
+      this.getItem('mobx入门','sub3_10',<Link to={"/mobx/home"}><UserOutlined /></Link>)
+    ]),
     this.getItem('Files', '9', <Link to={"/main/content"}><FileOutlined /></Link>),
   ];
 
 
 
   render() {
-    const {collapsed,defaultSelectedKeys,breadItems} = this.state
+    const {collapsed,defaultSelectedKeys,breadItems,defaultOpenKeys} = this.state
+    console.log('defaultSelectedKeys:',defaultSelectedKeys,'subKey:',defaultOpenKeys)
     return <Layout style={{minHeight:'100vh'}}>
       <Sider collapsible collapsed={collapsed} trigger={null}  onCollapse={(value)=>{this.setState({collapsed:value})}}>
         <div className="demo-logo-vertical" />
-        <Menu theme="dark" 
+        <Menu 
+        theme="dark" 
         onClick={this.sideMenuClick} 
         defaultSelectedKeys={[defaultSelectedKeys]}
+        defaultOpenKeys={[defaultOpenKeys]}
         mode="inline" 
         items={this.items}
          />
@@ -107,7 +120,7 @@ class  MainLayout extends React.Component {
           <Breadcrumb className="BreadcrumbView">
             {
               breadItems.map((item)=>{
-                return <BreadItem>{item}</BreadItem>
+                return <BreadItem key={item}>{item}</BreadItem>
               })
             }
             {/* <BreadItem>User</BreadItem>
