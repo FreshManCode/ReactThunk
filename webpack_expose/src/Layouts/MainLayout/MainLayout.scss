@@ -1,0 +1,21 @@
+.HeaderView {
+  padding: 0;
+  background-color: $mainColor;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ContentView {
+  margin: 0 16px;
+}
+
+.BreadcrumbView {
+  margin: 16px 0;
+}
+
+.FooterView {
+  text-align: center;
+  height: 60px;
+  background-color: $mainColor;
+}

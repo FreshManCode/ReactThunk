@@ -3,7 +3,10 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import 'pubsub-js'
 import reportWebVitals from './reportWebVitals';
+
 import App from './App'
+
+
 
 // ReactDOM.render 所触发的首次渲染
 

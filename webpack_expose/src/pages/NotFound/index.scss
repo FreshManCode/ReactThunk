@@ -1,0 +1,16 @@
+.NotFund {
+  min-height: 100vh;
+  text-align: center;
+  background-color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    color: $errorColor;
+    font: 20px/1.5 微软雅黑;
+    
+  }
+  
+}

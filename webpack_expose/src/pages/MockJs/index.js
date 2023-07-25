@@ -5,10 +5,9 @@ import {Button} from 'antd'
 import SubChild from './SubChild'
 import FunctionOne from './FunctionChild/FunctionOne'
 const PubSub = require('pubsub-js')
-
+// import EventEmitter from '@/utils/EventEmitter'
+// EventEmitter.initInstance();
 // myEvent 提前初始化并挂载在windows上的
-const myEvent = window.myEvent;
-
 class MockJS extends React.Component {
 
     constructor(props) {
@@ -35,9 +34,9 @@ class MockJS extends React.Component {
             console.log(`testHandler 事件被触发了,testHandler收到的入参是${params}`);
         }
         // 监听test事件
-        myEvent.on("test",(params)=>{
-            console.log('myEvent_on:',params);
-        })
+        // myEvent.on("test",(params)=>{
+        //     console.log('myEvent_on:',params);
+        // })
     }
     
     
@@ -101,16 +100,16 @@ class ShowTextChild extends React.Component{
 
     componentDidMount() {
         let that = this
-        myEvent.on("subChildSendEvent",function(params){
-            console.log('hahahah',typeof(params),params);
+        // myEvent.on("subChildSendEvent",function(params){
+        //     console.log('hahahah',typeof(params),params);
             
-            if(params &&  typeof(params) === 'string') {
-                that.setState({
-                    receiveText:params,
-                })
-            }
-            console.log('receive_subChildSendEvent',params);
-        })
+        //     if(params &&  typeof(params) === 'string') {
+        //         that.setState({
+        //             receiveText:params,
+        //         })
+        //     }
+        //     console.log('receive_subChildSendEvent',params);
+        // })
 
         PubSub.subscribe('start_time_down',(msg,data)=>{
             console.log('receive_start_time_down',data,'msg:',msg)
@@ -183,7 +182,7 @@ class EventChild extends React.Component {
 
     sendEvent = ()=>{
         console.log('sendEvent_sendEvent');
-        myEvent.emit("test","我是从子组件发送过去的哈哈哈")
+        // myEvent.emit("test","我是从子组件发送过去的哈哈哈")
     }
     render() {
         return <div className="eventChild">

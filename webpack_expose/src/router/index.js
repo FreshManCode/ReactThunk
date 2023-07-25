@@ -9,6 +9,7 @@ import App from '@/App'
 
 import BottomRouter from './BottomLayoutRouter'
 import LoginRouter from './LoginLayoutRouter'
+import MainLayoutRouter from './MainLayoutRouter'
 
 export const GetRoutes = ()=>{
     const routes = useRoutes([
@@ -18,6 +19,7 @@ export const GetRoutes = ()=>{
         // },
         ...BottomRouter,
         ...LoginRouter,
+        ...MainLayoutRouter,
         // {
         //     path :'/bottom',
         //     element:<BottomLayout/>,
