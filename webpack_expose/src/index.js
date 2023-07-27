@@ -5,8 +5,7 @@ import 'pubsub-js'
 import reportWebVitals from './reportWebVitals';
 
 import App from './App'
-
-
+import store from './store'
 
 // ReactDOM.render 所触发的首次渲染
 
@@ -14,7 +13,7 @@ import App from './App'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+      <App  store={store}/>
   </React.StrictMode>
 );
 

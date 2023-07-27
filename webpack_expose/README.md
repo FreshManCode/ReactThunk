@@ -3,6 +3,9 @@
 
 * node 版本:v14.15.1
 
+* npm start (本地测试环境)
+* npm run  startMock (本地mock环境)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
