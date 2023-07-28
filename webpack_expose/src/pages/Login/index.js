@@ -2,6 +2,7 @@ import React, { createRef } from 'react'
 import './login.scss'
 import {Button,Form,Input} from 'antd'
 import {Navigate} from 'react-router-dom'
+import {myLogin} from '@/api/home_api'
 
 const Item = Form.Item
 const layout = {
@@ -26,7 +27,12 @@ class Login extends React.Component {
   }
   loginAction = async ()=>{
     this.formRef.current.validateFields().then((values)=>{
-      this.setState({toMainPath:true})
+      myLogin().then(data=>{
+        console.log('getMyList_data:',data)
+        this.setState({toMainPath:true})
+      }).catch(error=>{
+        console.log('getMyList_error:',error)
+      })
       console.log('loginAction:',values,'1122:',this.formRef.current)
     }).catch(error=>{
       console.log("error:",error)
