@@ -13,6 +13,7 @@ const URLMaps = {
   '/main/optionstwo':'2',
   "/main/content":'9',
   "/mobx/home":'sub3_10',
+  "/mobx/usestore":"sub3_11",
 }
 
 const URLSubMaps = {
@@ -90,7 +91,8 @@ class  MainLayout extends React.Component {
     ]),
     this.getItem('Team', 'sub2', <TeamOutlined />, [this.getItem('Team 1', '6'), this.getItem('Team 2', '8')]),
     this.getItem('mobx', 'sub3', <AndroidOutlined />,[
-      this.getItem('mobx入门','sub3_10',<Link to={"/mobx/home"}><UserOutlined /></Link>)
+      this.getItem('mobx入门','sub3_10',<Link to={"/mobx/home"}><UserOutlined /></Link>),
+      this.getItem('usestore','sub3_11',<Link to={"/mobx/usestore"}><UserOutlined /></Link>),
     ]),
     this.getItem('Files', '9', <Link to={"/main/content"}><FileOutlined /></Link>),
   ];

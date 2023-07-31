@@ -3,6 +3,7 @@ import MainLayoutComponent from '@/pages/MainContent'
 import OptionsOne from '@/pages/MainContent/OptionsOne'
 import OptionsTWO from '@/pages/MainContent/Options2Two'
 import Mobx from '@/pages/Mobx'
+import UseStore from '@/pages/Mobx/UseStore'
 
 const Routers = [
   {
@@ -21,6 +22,7 @@ const Routers = [
     element:<MainLayout/>,
     children:[
       { path: "/mobx/home", element: <Mobx /> },
+      { path: "/mobx/usestore", element: <UseStore /> },
     ]
 
   }

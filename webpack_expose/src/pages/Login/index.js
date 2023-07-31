@@ -1,7 +1,8 @@
 import React, { createRef } from 'react'
 import './login.scss'
 import {Button,Form,Input} from 'antd'
-import {Navigate} from 'react-router-dom'
+// 跳转登录方式1
+import {Navigate,useNavigate} from 'react-router-dom'
 import {myLogin} from '@/api/home_api'
 
 const Item = Form.Item
@@ -13,6 +14,9 @@ const layout = {
     span: 16,
   },
 };
+const withNavigation = (Component) =>{
+  return (props)=><Component {...props} navigate={useNavigate()}></Component>
+}
 class Login extends React.Component {
   
   constructor(props) {
@@ -37,7 +41,12 @@ class Login extends React.Component {
     }).catch(error=>{
       console.log("error:",error)
     })
-    
+  }
+
+  // react-router-dom 路由切换方式2
+  loginAction2 = async () =>{
+    console.log('这是登录方式2')
+    this.props.navigate('/main')
   }
   
   render() {
@@ -53,10 +62,12 @@ class Login extends React.Component {
           <Input placeholder='请输入密码' type='password' maxLength={24}></Input>
         </Item>
       </Form>
-      <Button className='loginButton' size='large' type='primary' onClick={this.loginAction}>登录</Button>
+      <Button className='loginButton' size='large' type='primary' onClick={this.loginAction}>登录方式1</Button>
+      <Button className='loginButton' size='large' type='primary' onClick={this.loginAction2}>登录方式2</Button>
+
 
     </div>
   }
   
 }
-export default Login
+export default withNavigation(Login)

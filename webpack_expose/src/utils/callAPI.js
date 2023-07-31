@@ -59,7 +59,7 @@ service.interceptors.request.use(function (config) {
     if (responseCode === 200) {
         console.log('请求成功')
     }
-    return response
+    return response;
   }, function (error) {
     if (error.message.includes('timeout')) {
       console.log('请求超时哦')
