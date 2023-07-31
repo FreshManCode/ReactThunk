@@ -1,0 +1,17 @@
+.DS_STORE
+*.log
+
+coverage
+
+.idea/
+.idea/*
+
+# node_modules
+# /node_modules/**
+
+node_modules/
+node_modules/**/.cache/
+
+
+#忽略本地打包的内容
+/dist/
